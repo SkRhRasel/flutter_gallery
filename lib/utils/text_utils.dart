@@ -26,7 +26,7 @@ Widget textAutoSizeForGallery({required String text, VoidCallback? onTap, double
   );
 }
 
-Widget textSpanForGallery({required String title, required String subTitle, VoidCallback? onTap, double hMargin = 0,
+Widget textSpanForGallery({required String title, required String subTitle, VoidCallback? onTap, double hMargin = 0,double vMargin = 0,
   int maxLines = 1, Color? color, FontWeight fontWeight = FontWeight.normal, double? width,
   TextAlign textAlign = TextAlign.start, double fontSize = 16,TextDecoration? decoration }) {
 
@@ -35,7 +35,7 @@ Widget textSpanForGallery({required String title, required String subTitle, Void
   var widthL = width ?? double.infinity;
   return Container(
     width: widthL,
-    margin: EdgeInsets.only(left: hMargin, right: hMargin),
+    margin: EdgeInsets.only(left: hMargin, right: hMargin,top: vMargin),
     child: AutoSizeText.rich(
       TextSpan(
         text: title,

@@ -139,7 +139,7 @@ class HomePage extends StatelessWidget {
                                 subTitle:
                                     stringNullCheck(picsumPhotos.author),
                                 textAlign: TextAlign.center,
-                                maxLines: 2))
+                                maxLines: 2,vMargin: 5))
                       ]))),
           Positioned(
               bottom: 5,
