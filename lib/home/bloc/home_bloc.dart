@@ -3,6 +3,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_gallery/home/services/connectivityService.dart';
 import 'package:flutter_gallery/home/services/picsumPhotosService.dart';
+import 'package:flutter_gallery/utils/common_utils.dart';
 
 part 'home_event.dart';
 
@@ -17,10 +18,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     _connectivityService.connectivityStream.stream.listen((event) {
       if (event == ConnectivityResult.none) {
         add(NoInternetEvent());
-        print('No Internet');
         showToast('No Internet');
       }else{
-        print('Yes Internet');
         add(LoadApiEvent());
       }
     });
