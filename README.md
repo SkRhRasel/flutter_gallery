@@ -6,7 +6,5 @@ To view the image gallery, I take the Picsum.photos image list api.
 
 App Screenshots-
 - [Home Screen](assets/images/home.jpg)
-- [Home Screen](https://drive.google.com/file/d/1WeTzmS76Ugw3ZRJm2Mqt5HFpgNdpsGHa/view?usp=sharing)
-- [Image View Screen](https://drive.google.com/file/d/1WgiN1DSrhhRYN19xg0NiizJ-VS2ynMt7/view?usp=sharing)
 - [Image View Screen](assets/images/after_image_tap.jpg)
 
