@@ -27,7 +27,7 @@ Widget textAutoSizeForGallery({required String text, VoidCallback? onTap, double
 }
 
 Widget textSpanForGallery({required String title, required String subTitle, VoidCallback? onTap, double hMargin = 0,double vMargin = 0,
-  int maxLines = 1, Color? color, FontWeight fontWeight = FontWeight.normal, double? width,
+  int maxLines = 1, Color? color, Color? colorL, Color? colorR, FontWeight fontWeight = FontWeight.normal, double? width,
   TextAlign textAlign = TextAlign.start, double fontSize = 16,TextDecoration? decoration }) {
 
   var colorL = color ?? primaryDark;

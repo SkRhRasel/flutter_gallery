@@ -49,16 +49,26 @@ class HomePage extends StatelessWidget {
                       _picsumPhotosItemList(context, state.picsumPhotosList));
             }
             if (state is HomeNoInternetState) {
-              return const Center(
-                  child: Text(
-                'No Internet :( \n Please check your internet connection!',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
-              ));
+              return Center(
+                  child: textSpanForGallery(
+                      title: 'No Internet :(',
+                      subTitle: 'Please check your internet connection!',
+                      textAlign: TextAlign.center,
+                      colorL:kCoinBox1,
+                      colorR:kGreenColor,
+                      maxLines: 2,
+                      vMargin: 5)
+
+                  //     Text(
+                  //   'No Internet :( \n Please check your internet connection!',
+                  //   textAlign: TextAlign.center,
+                  //   style: TextStyle(
+                  //     fontWeight: FontWeight.bold,
+                  //     fontSize: 20,
+                  //     color: Colors.white,
+                  //   ),
+                  // )
+                  );
             }
             return Container();
           },
@@ -136,16 +146,17 @@ class HomePage extends StatelessWidget {
                             flex: 1,
                             child: textSpanForGallery(
                                 title: 'Author: ',
-                                subTitle:
-                                    stringNullCheck(picsumPhotos.author),
+                                subTitle: stringNullCheck(picsumPhotos.author),
                                 textAlign: TextAlign.center,
-                                maxLines: 2,vMargin: 5))
+                                maxLines: 2,
+                                vMargin: 5))
                       ]))),
           Positioned(
               bottom: 5,
               right: 5,
               child: InkWell(
-                  child: const Icon(Icons.share_outlined, size: 20,color: razzleDazzleRose),
+                  child: const Icon(Icons.share_outlined,
+                      size: 20, color: razzleDazzleRose),
                   onTap: () {
                     WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
                       Share.share(stringNullCheck(picsumPhotos.downloadUrl));
