@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'home/home.dart';
 import 'home/services/connectivityService.dart';
 import 'home/services/picsumPhotosService.dart';

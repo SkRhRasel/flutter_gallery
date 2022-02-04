@@ -49,16 +49,10 @@ class PicsumPhotosActivity {
 }
 
 class PicsumPhotosService {
-  Future<void> getData() async {
-    picsumPhotosList = <PicsumPhotosActivity>[];
-    getPicsumPhotosActivity();
-  }
-
   bool isDataLoaded = false;
-
   List<PicsumPhotosActivity> picsumPhotosList = <PicsumPhotosActivity>[];
 
-  ///
+  ///API service
   Future<List<PicsumPhotosActivity>> getPicsumPhotosActivity() async {
     final response = await get(Uri.parse('https://picsum.photos/v2/list'));
 
