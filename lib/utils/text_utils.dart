@@ -31,6 +31,7 @@ Widget textSpanForGallery({required String title, required String subTitle, Void
   TextAlign textAlign = TextAlign.start, double fontSize = 16,TextDecoration? decoration }) {
 
   var colorL = color ?? primaryDark;
+  var colorR = color ?? kCommonBackgroundColor;
   var widthL = width ?? double.infinity;
   return Container(
     width: widthL,
@@ -38,11 +39,11 @@ Widget textSpanForGallery({required String title, required String subTitle, Void
     child: AutoSizeText.rich(
       TextSpan(
         text: title,
-        style: TextStyle(color: colorL, fontSize: 16, fontWeight: FontWeight.bold,decoration: decoration),
+        style: TextStyle(color: colorL, fontSize: 15, fontWeight: FontWeight.bold,decoration: decoration),
         children: <TextSpan>[
           TextSpan(
             text: subTitle,
-            style: TextStyle(color: colorL, fontSize: 14, fontWeight: FontWeight.w100, decoration: decoration),
+            style: TextStyle(color: colorR, fontSize: 13, fontWeight: FontWeight.w600, decoration: decoration),
           ),
         ],
       ),

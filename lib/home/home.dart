@@ -82,10 +82,6 @@ class HomePage extends StatelessWidget {
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
             itemBuilder: (BuildContext context, int index) {
-              if (index == list.length - 1) {
-                _controller.getPicsumPhotosActivity();
-                return const Center(child: CircularProgressIndicator());
-              }
               return picsumPhotosListItemView(context, list[index]);
             },
             itemCount: list.length,
@@ -108,7 +104,6 @@ class HomePage extends StatelessWidget {
                     showModalSheetFullScreenForGallery(context, picsumPhotos);
                   },
                   child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Expanded(
@@ -139,20 +134,18 @@ class HomePage extends StatelessWidget {
                         ),
                         Expanded(
                             flex: 1,
-                            child: Center(
-                              child: textSpanForGallery(
-                                  title: 'Author: ',
-                                  subTitle:
-                                      stringNullCheck(picsumPhotos.author),
-                                  textAlign: TextAlign.center,
-                                  maxLines: 2),
-                            ))
+                            child: textSpanForGallery(
+                                title: 'Author: ',
+                                subTitle:
+                                    stringNullCheck(picsumPhotos.author),
+                                textAlign: TextAlign.center,
+                                maxLines: 2))
                       ]))),
           Positioned(
               bottom: 5,
               right: 5,
               child: InkWell(
-                  child: const Icon(Icons.share_outlined, size: 20),
+                  child: const Icon(Icons.share_outlined, size: 20,color: razzleDazzleRose),
                   onTap: () {
                     WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
                       Share.share(stringNullCheck(picsumPhotos.downloadUrl));
