@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'home/home.dart';
 import 'home/services/connectivityService.dart';
 import 'home/services/picsumPhotosService.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Bloc',
+        title: 'Picsum Photo Gallery',
         theme: ThemeData(primarySwatch: Colors.blue),
         home: MultiRepositoryProvider(
           providers: [

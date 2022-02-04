@@ -22,7 +22,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return BlocProvider(
       create: (context) => HomeBloc(
         RepositoryProvider.of<PicsumPhotosService>(context),
@@ -47,20 +46,19 @@ class HomePage extends StatelessWidget {
               return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child:
-                  _picsumPhotosItemList(context, state.picsumPhotosList));
-
+                      _picsumPhotosItemList(context, state.picsumPhotosList));
             }
             if (state is HomeNoInternetState) {
               return const Center(
                   child: Text(
-                    'No Internet :( \n Please check your internet connection!',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
-                  ));
+                'No Internet :( \n Please check your internet connection!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ));
             }
             return Container();
           },
@@ -76,24 +74,23 @@ class HomePage extends StatelessWidget {
     return list.isEmpty
         ? handleEmptyViewWithLoading(_controller.isDataLoaded, message: message)
         : GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio: 0.99,
-          crossAxisCount: 2,
-          mainAxisSpacing: 10.0,
-          crossAxisSpacing: 10.0),
-      shrinkWrap: true,
-      scrollDirection: Axis.vertical,
-      itemBuilder: (BuildContext context, int index) {
-        if (index == list.length - 1) {
-          _controller.getPicsumPhotosActivity();
-          return const Center(child: CircularProgressIndicator());
-        }
-        return picsumPhotosListItemView(context, list[index]);
-      },
-      itemCount: list.length,
-    );
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                childAspectRatio: 0.99,
+                crossAxisCount: 2,
+                mainAxisSpacing: 10.0,
+                crossAxisSpacing: 10.0),
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            itemBuilder: (BuildContext context, int index) {
+              if (index == list.length - 1) {
+                _controller.getPicsumPhotosActivity();
+                return const Center(child: CircularProgressIndicator());
+              }
+              return picsumPhotosListItemView(context, list[index]);
+            },
+            itemCount: list.length,
+          );
   }
-
 
   Widget picsumPhotosListItemView(
       BuildContext context, PicsumPhotosActivity picsumPhotos) {
@@ -118,25 +115,26 @@ class HomePage extends StatelessWidget {
                           flex: 4,
                           child: ClipRRect(
                             borderRadius:
-                            const BorderRadius.all(Radius.circular(dp7)),
+                                const BorderRadius.all(Radius.circular(dp7)),
                             child: picsumPhotos.downloadUrl.isNotEmpty
                                 ? Hero(
-                              tag: 'imageHero',
-                              child: CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  //imageUrl: stringNullCheck(picsumPhotos.downloadUrl),
-                                  imageUrl: stringNullCheck(url + picsumPhotos.id + size),
-                                  placeholder: (context, url) =>
-                                  const Center(
-                                      child:
-                                      CircularProgressIndicator()),
-                                  errorWidget: (context, url, error) =>
-                                  const Icon(Icons.error)),
-                            )
+                                    tag: 'imageHero',
+                                    child: CachedNetworkImage(
+                                        fit: BoxFit.cover,
+                                        //imageUrl: stringNullCheck(picsumPhotos.downloadUrl),
+                                        imageUrl: stringNullCheck(
+                                            url + picsumPhotos.id + size),
+                                        placeholder: (context, url) =>
+                                            const Center(
+                                                child:
+                                                    CircularProgressIndicator()),
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(Icons.error)),
+                                  )
                                 : Image.asset(AssetConstants.imgNotAvailable,
-                                width: dp100,
-                                height: dp100,
-                                fit: BoxFit.cover),
+                                    width: dp100,
+                                    height: dp100,
+                                    fit: BoxFit.cover),
                           ),
                         ),
                         Expanded(
@@ -144,7 +142,8 @@ class HomePage extends StatelessWidget {
                             child: Center(
                               child: textSpanForGallery(
                                   title: 'Author: ',
-                                  subTitle: stringNullCheck(picsumPhotos.author),
+                                  subTitle:
+                                      stringNullCheck(picsumPhotos.author),
                                   textAlign: TextAlign.center,
                                   maxLines: 2),
                             ))
@@ -185,10 +184,12 @@ class HomePage extends StatelessWidget {
                     tag: 'imageHero',
                     child: ClipRRect(
                       borderRadius:
-                      const BorderRadius.all(Radius.circular(dp7)),
+                          const BorderRadius.all(Radius.circular(dp7)),
                       child: PhotoView(
-                        backgroundDecoration: const BoxDecoration(color: Colors.transparent),
-                        imageProvider: CachedNetworkImageProvider(stringNullCheck(url + picsumPhotos.id + size),
+                        backgroundDecoration:
+                            const BoxDecoration(color: Colors.transparent),
+                        imageProvider: CachedNetworkImageProvider(
+                          stringNullCheck(url + picsumPhotos.id + size),
                         ),
                       ),
                     ),

@@ -1,5 +1,5 @@
 name: flutter_gallery
-description: A new Flutter Gallery app using Bloc state management design pattern..
+description: A new Flutter Gallery app, "Picsum Photo Gallery". It made with Bloc state management.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
